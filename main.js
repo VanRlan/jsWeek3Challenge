@@ -46,7 +46,42 @@ class  Person{
     }
 }
 
-const van = new Person("Van", "back-end developer");
+class Programmer extends Person{
+    constructor (name, job, age, languages) {
+        super(name, job, age);
+        this.languages = languages
+        this.busy = true;
+    }
+
+    completeTask() {
+        this.busy = false;
+    }
+
+    acceptNewTask() {
+        this.busy = true;
+    }
+
+    offerNewTask() {
+        if (this.busy) {
+            this.busy = true;
+            console.log(`${this.name} can't accept any new tasks right now`);
+        } else {
+            console.log(`${this.name} would love to take on a new respnsibility`);
+        }
+    }
+    
+    learnLanguage() {
+        console.log('English', 'Jrai');
+    }
+
+    listLanguages() {
+        console.log(`${this.name} knows ${this.languages}`);
+    }
+}
+
+const van = new Programmer("Van", "back-end developer", 19,'English and Jrai');
 
 van.exercise();
 van.fetchJob();
+van.offerNewTask();
+van.listLanguages();
