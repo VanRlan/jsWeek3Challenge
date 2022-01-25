@@ -1,18 +1,18 @@
 // Easy
 function exercise(activity) {
-    return "Today's exercise is " + activity;
+    return () => `Today's exercise is: ${activity}`;
 }
 var run = exercise("Running");
-console.log(run);
 var swim = exercise("Swimming");
-console.log(swim);
+console.log(run());
+console.log(swim());
 
 // Medium
 function cutPizzaSlices(slices, people) {
     return `Each person gets ${slices / people} slices of pizza`;
   }
-  console.log(cutPizzaSlices(8, 2));
-  console.log(cutPizzaSlices(8, 3));
+console.log(cutPizzaSlices(8, 2));
+console.log(cutPizzaSlices(8, 3));
 
 // Hard
 var ppi = {
@@ -30,33 +30,23 @@ console.log(ppi.fullName());
 console.log(ppi.sSN());
 
 // Very Hard
-class Pokemon {
-    constructor (name, type) {
+class  Person{
+    constructor (name, job, age) {
         this.name = name;
-        this.type = type;
-        this.isHungry = true;
+        this.job = job;
+        this.age = age;
     }
 
-    sayName () {
-        console.log(`${this.name}`);
-        console.log(`${this.name} has a type of ${this.type}`);
-        this.isHungry = true;
+    exercise() {
+        console.log(`Soccer is fun! - ${this.name}`)
     }
 
-    eat() {
-        if(this.isHungry){
-            this.isHungry = false;
-            console.log(`${this.name} ate its food and is not hungry any more`);
-        } else {
-            console.log(`${this.name} is not hungry`);
-        }
+    fetchJob() {
+        console.log(`${this.name} is a ${this.job}`)
     }
 }
 
-const pikachu = new Pokemon("Pikachu", "Electric");
+const van = new Person("Van", "back-end developer");
 
-Pokemon.prototype.attack = "Thunderbolt"
-
-pikachu.sayName();
-pikachu.eat();
-console.log(pikachu.attack);
+van.exercise();
+van.fetchJob();
